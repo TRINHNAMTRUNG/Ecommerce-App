@@ -1,59 +1,9 @@
 import { StyleSheet, View, Image, Text, TouchableOpacity } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
-const dataCategory = [
-    {
-        id: 1,
-        title: "Nhà sách",
-        src: require(`../../assets/listCatg/catg1.png`)
-    },
-    {
-        id: 2,
-        title: "Nhà cửa - đời sống",
-        src: require(`../../assets/listCatg/catg2.png`)
-    },
-    {
-        id: 3,
-        title: "Điện thoại - máy tính",
-        src: require(`../../assets/listCatg/catg3.png`)
-    },
-    {
-        id: 4,
-        title: "Phụ kiện - thiết bị số",
-        src: require(`../../assets/listCatg/catg4.png`)
-    },
-    {
-        id: 5,
-        title: "Điện gia dụng",
-        src: require(`../../assets/listCatg/catg5.png`)
-    },
-    {
-        id: 6,
-        title: "Làm đẹp",
-        src: require(`../../assets/listCatg/catg6.png`)
-    },
-    {
-        id: 7,
-        title: "Thời trang nam",
-        src: require(`../../assets/listCatg/catg7.png`)
-    },
-    {
-        id: 8,
-        title: "Thời trang nữ",
-        src: require(`../../assets/listCatg/catg8.png`)
-    },
-    {
-        id: 9,
-        title: "Giày - dép nam",
-        src: require(`../../assets/listCatg/catg9.png`)
-    },
-    {
-        id: 10,
-        title: "Giày - dép nữ",
-        src: require(`../../assets/listCatg/catg10.png`)
-    },
-]
-const colors = ['#BFEFFF', '#FFF2D0', '#F6D2FF', '#FFEAD7', '#BCC5FF', '#CBFEFF', '#D6FFBF', '#FFEBF6', '#FFB2B2', '#D1C8FF'];
 
+import { dataCategory } from "../../data/dataObject";
+
+const colors = ['#BFEFFF', '#FFF2D0', '#F6D2FF', '#FFEAD7', '#BCC5FF', '#CBFEFF', '#D6FFBF', '#FFEBF6', '#FFB2B2', '#D1C8FF'];
 
 const ListCategory = () => {
     return (

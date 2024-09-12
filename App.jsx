@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import FirstScreen from './src/Screens/homePage.jsx';
+import HomePage from './src/pages/Home/homePage.jsx';
 export default function App() {
   return (
     // <View style={styles.container}>
@@ -8,7 +8,7 @@ export default function App() {
     //   <StatusBar style="auto" />
     // </View>
     <View style={stylesApp.containerApp}>
-      <FirstScreen />
+      <HomePage />
     </View>
   );
 }
