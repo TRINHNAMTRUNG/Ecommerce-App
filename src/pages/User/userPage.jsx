@@ -1,19 +1,23 @@
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faGear, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+
 import { SafeAreaView, ScrollView, StatusBar, StyleSheet, TouchableOpacity, View, Text, Image } from "react-native";
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import image from "../../assets/thumb/backgr_image.png";
+
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import { faGear, faShoppingCart, faPen } from '@fortawesome/free-solid-svg-icons';
 import { faFaceSmileWink } from '@fortawesome/free-regular-svg-icons';
-import { faPen } from '@fortawesome/free-solid-svg-icons';
 import { Badge } from 'react-native-elements';
+
 
 const UserPage = () => {
     const fontSizeIcon = 20;
     const isImage = false;
     const countMessage = <FontAwesomeIcon icon={faPen} size={10} color="black" />;
+    const insets = useSafeAreaInsets();
     return (
-        <View style={styleUserPage.bounary}>
-            <StatusBar barStyle="dark-content" backgroundColor="white" />
+        <View style={[styleUserPage.bounary, { paddingTop: insets.top }]}>
+            {/* <StatusBar barStyle="dark-content" backgroundColor="white" /> */}
             <SafeAreaView>
                 <View style={styleUserPage.headBar}>
                     <Text style={styleUserPage.leftTitle}>Tài khoản</Text>
@@ -52,7 +56,7 @@ const UserPage = () => {
 
 const styleUserPage = StyleSheet.create({
     bounary: {
-        paddingHorizontal: 16
+        paddingHorizontal: 16,
     },
     containerUserPage: {
         height: "100%",
