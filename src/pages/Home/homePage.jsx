@@ -1,14 +1,15 @@
 import React, { memo, useState } from 'react';
-import { View, ScrollView, StyleSheet, TouchableOpacity, Image, Button, TextInput, FlatList } from 'react-native';
+import { View, ScrollView, StyleSheet, TouchableOpacity, Image, Text, TextInput, FlatList, StatusBar } from 'react-native';
 
-import SlideAvertisement from '../../components/Home/slideAvertisement.jsx'
-import ListCategory from '../../components/Home/listCategory.jsx'
+import SlideAvertisement from '../../components/Home/slideAvertisement.jsx';
+import ListCategory from '../../components/Home/listCategory.jsx';
 import FrameAddress from '../../components/Home/frameAddress.jsx';
 import BarSearch from '../../components/Home/barSearch.jsx';
 
-import { dataAdvertisement } from '../../data/dataObject.js';
+import { dataAdvertisement, dataProduct } from '../../data/dataObject.js';
+import ListProduct from '../../components/Home/listProduct.jsx';
 
-const FirstScreen = () => {
+const HomePage = ({ navigation }) => {
   const [isFixed, setIsFixed] = useState(false);
 
   const handleScroll = (e) => {
@@ -24,7 +25,6 @@ const FirstScreen = () => {
     <>
       {isFixed && <BarSearch isFixed={isFixed} />}
       <ScrollView style={stylesHomePage.frameContainer} onScroll={(e) => handleScroll(e)} scrollEventThrottle={16}>
-
         <View style={stylesHomePage.frameHeader}>
           <Image source={require("../../assets/thumb/backgr_image.png")} style={stylesHomePage.imageHeader} />
           {isFixed === false && <BarSearch isFixed={isFixed} />}
@@ -36,14 +36,22 @@ const FirstScreen = () => {
 
         <View style={stylesHomePage.frameBody}>
           <ListCategory />
-          <ListCategory />
-          <ListCategory />
-          <ListCategory />
-          <ListCategory />
-          <ListCategory />
-          <ListCategory />
-          <ListCategory />
           <FrameAddress />
+          <View style={stylesHomePage.frameListProducts}>
+            <ListProduct dataProduct={dataProduct} />
+          </View>
+          <View style={stylesHomePage.frameListProducts}>
+            <ListProduct dataProduct={dataProduct} />
+          </View>
+          <View style={stylesHomePage.frameListProducts}>
+            <ListProduct dataProduct={dataProduct} />
+          </View>
+          <View style={stylesHomePage.frameListProducts}>
+            <ListProduct dataProduct={dataProduct} />
+          </View>
+          <TouchableOpacity style={{ backgroundColor: "pink", width: 200, padding: 10, borderRadius: 10, margin: 10 }} onPress={() => { navigation.navigate("homeDetail") }}>
+            <Text style={{ textAlign: "center" }}>Go HomeDetail</Text>
+          </TouchableOpacity>
         </View>
       </ScrollView >
     </>
@@ -62,6 +70,9 @@ const stylesHomePage = StyleSheet.create({
     position: "relative",
     alignItems: "center",
   },
+  frameListProducts: {
+
+  },
   imageHeader: {
     position: "absolute",
     height: "65%",
@@ -76,8 +87,8 @@ const stylesHomePage = StyleSheet.create({
   },
   frameBody: {
     flex: 2,
-    alignItems: "center"
+    // alignItems: "center"
   }
 });
 
-export default memo(FirstScreen);
+export default memo(HomePage);

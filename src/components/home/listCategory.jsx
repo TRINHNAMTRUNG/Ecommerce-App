@@ -1,9 +1,8 @@
 import { StyleSheet, View, Image, Text, TouchableOpacity } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
-
 import { dataCategory } from "../../data/dataObject";
-
 const colors = ['#BFEFFF', '#FFF2D0', '#F6D2FF', '#FFEAD7', '#BCC5FF', '#CBFEFF', '#D6FFBF', '#FFEBF6', '#FFB2B2', '#D1C8FF'];
+
 
 const ListCategory = () => {
     return (
@@ -28,15 +27,14 @@ const ListCategory = () => {
 
 const styleListCategory = StyleSheet.create({
     LsCategoryContainer: {
-        width: "90%",
+        width: "100%",
         maxHeight: 200,
         flexWrap: "wrap",
         flexDirection: "row",
         justifyContent: "space-between",
-        borderRadius: 10,
-        marginTop: 4,
+        marginTop: 8,
         backgroundColor: "#FFFFFF",
-        padding: 12,
+        padding: 16,
         paddingBottom: 4,
         overflow: "hidden",
         overflow: "scroll"

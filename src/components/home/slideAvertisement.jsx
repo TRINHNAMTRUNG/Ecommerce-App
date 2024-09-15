@@ -85,7 +85,7 @@ const stylesSlide = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         flexDirection: 'row',
-        marginTop: 4
+        marginTop: 8
     },
     square: {
         width: 20,

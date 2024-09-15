@@ -19,6 +19,49 @@ import catg9 from "../assets/listCatg/catg9.png";
 import catg10 from "../assets/listCatg/catg10.png";
 
 //Object
+export const dataProduct = [
+    {
+        id: "1234",
+        title: "Điện thoại Oppo A18 (4GB/128GB) - Hàng chính hãng",
+        discount: 19,
+        price: 3250000,
+        originalPrice: 3990000,
+        rating: 4.5,
+    },
+    {
+        id: "1234abc",
+        title: "Điện thoại Samsung Galaxy A72 (8GB/256GB) - Hàng chính hãng",
+        discount: 19,
+        price: 10250000,
+        originalPrice: 10990000,
+        rating: 5,
+    },
+    {
+        id: "1234abcdfg2",
+        title: "Điện thoại Samsung Galaxy A05 (4GB/128GB) - Đã kích hoạt bảo hành điện tử - Hàng chính hãng",
+        discount: 7,
+        price: 2830000,
+        originalPrice: 3050000,
+        rating: 5,
+    },
+    {
+        id: "1234abcdfg7",
+        title: "Điện thoại Samsung Galaxy Z Flip6, điện thoại AI, 256GB, pin lớn nhất, Flexcam 50MP - Hàng chính hãng",
+        discount: 24,
+        price: 21990000,
+        originalPrice: 28990000,
+        rating: 5,
+    },
+    {
+        id: "1234abcdfg8",
+        title: "Điện thoại Tecno SPARK 10 Pro 8GB/128GB  Hàng chính hãng",
+        discount: 17,
+        price: 2490000,
+        originalPrice: 2990000,
+        rating: 5,
+    }
+]
+
 export const dataAdvertisement = [
     {
         id: 1,

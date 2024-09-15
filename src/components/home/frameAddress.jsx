@@ -12,12 +12,11 @@ const FrameAddress = () => {
 const stylesFrameAddress = StyleSheet.create({
     frameAddress: {
         height: 40,
-        width: "90%",
-        borderRadius: 10,
+        width: "100%",
         alignItems: "center",
         flexDirection: "row",
         marginTop: 10,
-        paddingLeft: 17,
+        paddingLeft: 16,
         paddingRight: 12,
         paddingTop: 8,
         paddingBottom: 8,
