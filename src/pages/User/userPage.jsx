@@ -10,7 +10,7 @@ import { faFaceSmileWink } from '@fortawesome/free-regular-svg-icons';
 import { Badge } from 'react-native-elements';
 
 
-const UserPage = () => {
+const UserPage = ({ navigation }) => {
     const fontSizeIcon = 20;
     const isImage = false;
     const countMessage = <FontAwesomeIcon icon={faPen} size={10} color="black" />;
@@ -22,10 +22,10 @@ const UserPage = () => {
                 <View style={styleUserPage.headBar}>
                     <Text style={styleUserPage.leftTitle}>Tài khoản</Text>
                     <View style={styleUserPage.rightBar}>
-                        <TouchableOpacity style={styleUserPage.btnBar}>
+                        <TouchableOpacity style={styleUserPage.btnBar} >
                             <FontAwesomeIcon icon={faGear} size={fontSizeIcon} color="black" />
                         </TouchableOpacity>
-                        <TouchableOpacity style={styleUserPage.btnBar}>
+                        <TouchableOpacity style={styleUserPage.btnBar} onPress={() => { navigation.navigate("productDetail") }}>
                             <FontAwesomeIcon icon={faShoppingCart} size={fontSizeIcon} color="black" />
                         </TouchableOpacity>
                     </View>

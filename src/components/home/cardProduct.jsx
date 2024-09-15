@@ -1,10 +1,12 @@
-import { Image, StyleSheet } from "react-native";
+import { Image, Pressable, StyleSheet } from "react-native";
 import { View, Text } from "react-native";
 import image from "../../assets/thumb/backgr_image.png"
-const CardProduct = ({ product }) => {
 
+import { useNavigation } from '@react-navigation/native';
+const CardProduct = ({ product }) => {
+    const navigation = useNavigation();
     return (
-        <View style={styleCardProduct.containerCard}>
+        <Pressable style={styleCardProduct.containerCard} onPress={() => { navigation.navigate("productDetail") }}>
             <View style={styleCardProduct.frameImage}>
                 <Image source={require = image} style={styleCardProduct.imageProd} />
             </View>
@@ -23,7 +25,7 @@ const CardProduct = ({ product }) => {
                 <Text style={styleCardProduct.textType}>Giao siêu tốc 2h</Text>
             </View>
 
-        </View>
+        </Pressable>
     );
 }
 
