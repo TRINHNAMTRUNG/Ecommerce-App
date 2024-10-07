@@ -2,9 +2,9 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import HomePage from './src/pages/Home/homePage';
 import Layout from './src/routes/layout';
-import LoginPhone from './src/components/LoginPhone';
-import LoginEmail from './src/components/LoginEmail';
-import Signup from './src/components/Signup';
+import LoginEmail from './src/components/Login/LoginEmail';
+import LoginPhone from './src/components/Login/LoginPhone';
+import Signup from './src/components/Login/Signup';
 import { enableScreens } from 'react-native-screens';
 enableScreens();
 

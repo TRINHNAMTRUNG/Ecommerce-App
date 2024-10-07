@@ -1,29 +1,32 @@
 import { View, Text,StyleSheet,Image, TextInput,TouchableOpacity } from 'react-native'
 import React from 'react'
 
-const LoginEmail = () => {
+const LoginPhone = () => {
   return (
     <View style={styles.container}>
-      <Image source={require('../../assets/img/banner.jpg')} style={styles.imgBanner}/>
+      <Image source={require('../../../assets/img/banner.jpg')} style={styles.imgBanner}/>
         <View style={styles.document}>
           <Text style={styles.txtIntro}>Xin chào,</Text>
-          <Text style={styles.txtTitle}>Nhập email của bạn để tiếp t</Text>
+          <Text style={styles.txtTitle}>Đăng nhập hoặc tạo tài khoản</Text>
           <TextInput
-           placeholder='abc@email.com.'
+           placeholder='Số điện thoại.'
            style={styles.textInput}
           />
           <TouchableOpacity style={styles.btnContainer}>
             <Text style={styles.txtContainer}>Tiếp tục</Text>
           </TouchableOpacity>
+          <TouchableOpacity style={styles.btnEmail}>
+            <Text style={styles.txtEmail}>Đăng nhập bằng email</Text>
+          </TouchableOpacity>
         </View>
         <View style={styles.footer}>
-            <Text style={styles.txtFooter}>Hoặc tiếp tục bằng</Text>
+            <Text style={styles.txtFooter}>Hãy tiếp tục bằng</Text>
             <View style={styles.itemLogo}>
               <TouchableOpacity style={styles.btnLogo}>
-              <Image source={require('../../assets/img/LogoFB.png')} style={styles.logo}/>
+              <Image source={require('../../../assets/img/LogoFB.png')} style={styles.logo}/>
               </TouchableOpacity>
              <TouchableOpacity style={styles.btnLogo}>
-             <Image source={require('../../assets/img/LogoGoogle.png')} style={styles.logo}/>
+             <Image source={require('../../../assets/img/LogoGoogle.png')} style={styles.logo}/>
              </TouchableOpacity>
 
             </View>
@@ -123,4 +126,4 @@ const styles=StyleSheet.create({
 
 })
 
-export default LoginEmail
+export default LoginPhone

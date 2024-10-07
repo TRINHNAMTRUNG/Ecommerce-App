@@ -4,10 +4,10 @@ import React from 'react';
 const Signup = () => {
   return (
     <View style={styles.container}>
-      <Image source={require('../../assets/img/banner.jpg')} style={styles.imgBanner} />
+      <Image source={require('../../../assets/img/banner.jpg')} style={styles.imgBanner} />
       <View style={styles.main}>
         <TouchableOpacity style={styles.btnUpfile}>
-          <Image source={require('../../assets/img/image.png')} style={styles.LogoUpfile} />
+          <Image source={require('../../../assets/img/image.png')} style={styles.LogoUpfile} />
         </TouchableOpacity>
       </View>
       <ScrollView contentContainerStyle={styles.scrollContent} keyboardShouldPersistTaps="handled">
