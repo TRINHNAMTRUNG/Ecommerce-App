@@ -1,8 +1,8 @@
 import React, { memo, useState } from 'react';
 import { View, ScrollView, StyleSheet, TouchableOpacity, Image, Text, TextInput, FlatList, StatusBar } from 'react-native';
 
-import SlideAvertisement from '../../components/Home/slideAvertisement.jsx'
-import ListCategory from '../../components/Home/listCategory.jsx'
+import SlideAvertisement from '../../components/Home/slideAvertisement.jsx';
+import ListCategory from '../../components/Home/listCategory.jsx';
 import FrameAddress from '../../components/Home/frameAddress.jsx';
 import BarSearch from '../../components/Home/barSearch.jsx';
 

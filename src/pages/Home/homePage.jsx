@@ -1,7 +1,7 @@
 import React, { memo, useState } from 'react';
 import { View, ScrollView, StyleSheet, TouchableOpacity, Image, Text, TextInput, FlatList, StatusBar } from 'react-native';
 
-import SlideAvertisement from '../../components/Home/slideAvertisement.jsx';
+import SlideAdvertisement from '../../components/Home/slideAvertisement.jsx';
 import ListCategory from '../../components/Home/listCategory.jsx';
 import FrameAddress from '../../components/Home/frameAddress.jsx';
 import BarSearch from '../../components/Home/barSearch.jsx';
@@ -28,7 +28,7 @@ const HomePage = ({ navigation }) => {
         <View style={stylesHomePage.frameHeader}>
           <Image source={require("../../assets/thumb/backgr_image.png")} style={stylesHomePage.imageHeader} />
           {isFixed === false && <BarSearch isFixed={isFixed} />}
-          <SlideAvertisement
+          <SlideAdvertisement
             dataAdvertisement={dataAdvertisement}
             isFixed={isFixed}
           />
