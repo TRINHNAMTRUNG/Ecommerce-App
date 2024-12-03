@@ -6,6 +6,7 @@
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
+    "newArchEnabled": true,
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
@@ -23,11 +24,24 @@
     "web": {
       "favicon": "./assets/favicon.png"
     },
+    "scheme": "myAppTiki",
+    "deepLinking": {
+      "enabled": true,
+      "prefixes": [
+        "myAppTiki://"
+      ]
+    },
     "extra": {
       "eas": {
         "projectId": "fb27f3b1-470b-4cfe-8474-15c3c4612c9a"
       }
     },
-    "owner": "trinhnamtrung"
+    "owner": "trinhnamtrung",
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/fb27f3b1-470b-4cfe-8474-15c3c4612c9a"
+    }
   }
 }

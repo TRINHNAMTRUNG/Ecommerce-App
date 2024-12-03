@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, Linking, TouchableOpacity } from 'react-native';
 
-const InfoDetail = () => {
+const InfoDetail = ({ product }) => {
   const [collapsed, setCollapsed] = useState(true);
 
   // Dữ liệu thông tin
-  const infoData = [
-    { header: 'Cung cấp bởi', value: 'Tiki Trading' },
-    { header: 'Thương hiệu', value: <Text style={styles.link} onPress={() => Linking.openURL('https://example.com')}>Gilaa</Text> },
-    { header: 'Xuất xứ thương hiệu', value: 'Hàn Quốc' },
-    { header: 'Xuất xứ (Made in)', value: 'Hàn Quốc' },
-    { header: 'Hạn sử dụng', value: '24 tháng kể từ ngày sản xuất' },
-    { header: 'Sản phẩm có được bảo hành không?', value: 'Không' },
-  ];
+  // const infoData = [
+  //   { header: 'Cung cấp bởi', value: 'Tiki Trading' },
+  //   { header: 'Thương hiệu', value: <Text style={styles.link} onPress={() => Linking.openURL('https://example.com')}>Gilaa</Text> },
+  //   { header: 'Xuất xứ thương hiệu', value: 'Hàn Quốc' },
+  //   { header: 'Xuất xứ (Made in)', value: 'Hàn Quốc' },
+  //   { header: 'Hạn sử dụng', value: '24 tháng kể từ ngày sản xuất' },
+  //   { header: 'Sản phẩm có được bảo hành không?', value: 'Không' },
+  // ];
+  const infoData = product.attribute;
 
   // Hàm xử lý nhấn nút thu gọn/mở rộng
   const handleCollapseClick = () => {
@@ -28,7 +29,7 @@ const InfoDetail = () => {
       <View style={styles.table}>
         {infoData.slice(0, collapsed ? visibleCount : infoData.length).map((item, index) => (
           <View key={index} style={styles.row}>
-            <Text style={styles.cellHeader}>{item.header}</Text>
+            <Text style={styles.cellHeader}>{item.name}</Text>
             <Text style={styles.cell}>{item.value}</Text>
           </View>
         ))}
@@ -64,10 +65,12 @@ const styles = StyleSheet.create({
     color: '#666666',
     fontWeight: 'bold',
     flex: 1,
+
   },
   cell: {
     color: '#333333',
     flex: 2,
+    marginLeft: 20
   },
   link: {
     color: '#007bff',

@@ -1,6 +1,6 @@
 import { Image, StyleSheet } from "react-native";
 import { View, FlatList } from "react-native";
-import { useEffect, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import { useRef } from "react";
 const SlideAdvertisement = ({ dataAdvertisement, isFixed }) => {
     const [indexSlide, setIndexSlide] = useState(0);
@@ -76,7 +76,7 @@ const stylesSlide = StyleSheet.create({
     slide: {
         width: 310,
         height: 160,
-        alignItems: "center"
+        alignItems: "center",
     },
     fixScroll: {
         marginTop: "55%"
@@ -97,7 +97,7 @@ const stylesSlide = StyleSheet.create({
     activeSquare: {
         width: 35,
         backgroundColor: "#1670FF",
-    }
+    },
 });
 
-export default SlideAdvertisement;
+export default memo(SlideAdvertisement);

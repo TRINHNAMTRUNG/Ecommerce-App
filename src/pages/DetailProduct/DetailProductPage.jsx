@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { View, ScrollView, StyleSheet, Keyboard, TouchableWithoutFeedback } from "react-native";
+import React, { memo, useState } from "react";
+import { View, ScrollView, StyleSheet, Keyboard } from "react-native";
 import Nav from "../../components/DetailProduct/navbar";
 import InforProduct from "../../components/DetailProduct/inforProduct";
 import ButtonContainer from "../../components/DetailProduct/buttonContainerProduct";
@@ -10,8 +10,11 @@ import ShoppingAssurance from "../../components/DetailProduct/shoppingAssurance"
 import DetailInfo from "../../components/DetailProduct/detailInfo";
 import CustomerReview from "../../components/DetailProduct/customerReview";
 
-
-const DetailProductPage = () => {
+const DetailProductPage = ({ navigation, route }) => {
+  let product = {};
+  if (route?.params) {
+    product = route.params.product;
+  }
   const [isButtonVisible, setIsButtonVisible] = useState(false);
 
   const handleScroll = (event) => {
@@ -22,41 +25,40 @@ const DetailProductPage = () => {
     // Show ButtonContainer only when it's not in the viewport
     setIsButtonVisible(!isCloseToBottom);
   };
-
+  console.log("Hien thi lan first");
   return (
-    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-      <View style={styles.container}>
-        <Nav isSearchVisible={true} />
-        <ScrollView
-          style={styles.scrollView}
-          onScroll={handleScroll}
-          scrollEventThrottle={16}
-        >
-          <StrainerImage />
-          <InforProduct />
-          <InfoSection />
-          <ShippingInfo />
-          <ButtonContainer />
-          <ShoppingAssurance />
-          <DetailInfo />
-          <CustomerReview/>
-
-        </ScrollView>
-        {/* Always show ButtonContainer at the bottom */}
-        <View style={[styles.buttonContainer, { display: isButtonVisible ? 'none' : 'flex' }]}>
-          <ButtonContainer />
-        </View>
+    <View style={styles.container}>
+      <Nav isSearchVisible={true} />
+      <ScrollView
+        style={styles.scrollView}
+        onScroll={handleScroll}
+        scrollEventThrottle={16}
+      >
+        <StrainerImage product={product} />
+        <InforProduct product={product} />
+        <InfoSection />
+        <ShippingInfo />
+        <ButtonContainer product={product} navigation={navigation} />
+        <ShoppingAssurance />
+        <DetailInfo product={product} />
+        <CustomerReview product={product} />
+      </ScrollView>
+      {/* Always show ButtonContainer at the bottom */}
+      <View style={[styles.buttonContainer, { display: isButtonVisible ? 'none' : 'flex' }]}>
+        <ButtonContainer product={product} navigation={navigation} />
       </View>
-    </TouchableWithoutFeedback>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: "white"
   },
   scrollView: {
-    flex: 1, // Ensure ScrollView takes the full height
+    flexGrow: 1, // Cho phép các phần tử con mở rộng
+    paddingBottom: 60, // Chừa không gian cho ButtonContainer
   },
   buttonContainer: {
     position: 'absolute',
@@ -70,4 +72,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default DetailProductPage;
+export default memo(DetailProductPage);

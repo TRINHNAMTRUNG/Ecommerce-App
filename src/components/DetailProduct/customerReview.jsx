@@ -2,8 +2,8 @@ import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-const CustomerReview = ({ onNavigate }) => { // Nhận prop điều hướng từ component cha nếu cần
-
+const CustomerReview = ({ onNavigate, product }) => { // Nhận prop điều hướng từ component cha nếu cần
+    const rating = product.ratingAverage;
     return (
         <View style={styles.container}>
             <View style={styles.header}>
@@ -15,13 +15,19 @@ const CustomerReview = ({ onNavigate }) => { // Nhận prop điều hướng t�
             </View>
 
             <View style={styles.rating}>
-                <Text style={styles.score}>5</Text>
+                <Text style={styles.score}>{rating}</Text>
                 <View style={styles.stars}>
+                    {/* <Icon name="star" size={20} color="#f5a623" />
                     <Icon name="star" size={20} color="#f5a623" />
                     <Icon name="star" size={20} color="#f5a623" />
                     <Icon name="star" size={20} color="#f5a623" />
-                    <Icon name="star" size={20} color="#f5a623" />
-                    <Icon name="star" size={20} color="#f5a623" />
+                    <Icon name="star" size={20} color="#f5a623" /> */}
+                    {[...Array(Math.floor(rating))].map((_, index) => (
+                        <Icon key={index} name="star" size={20} color="#f5a623" />
+                    ))}
+                    {[...Array(5 - Math.floor(rating))].map((_, index) => (
+                        <Icon key={index + Math.floor(rating)} name="star" size={20} color="#d3d3d3" />
+                    ))}
                 </View>
                 <Text style={styles.count}>(1 đánh giá)</Text>
             </View>

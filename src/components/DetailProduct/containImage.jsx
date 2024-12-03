@@ -1,24 +1,33 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, memo } from 'react';
 import { View, Image, StyleSheet, Dimensions, TouchableOpacity, FlatList, ScrollView } from 'react-native';
 
 const { width } = Dimensions.get('window');
 
-const images = [
-  require('../../assets/listAdv/adv01.png'),
-  require('../../assets/listAdv/adv02.png'),
-  require('../../assets/listAdv/adv03.png'),
-  require('../../assets/listAdv/adv04.png'),
-  require('../../assets/listAdv/adv05.png'),
-  
-];
+// const images = [
+//   require('../../assets/listAdv/adv01.png'),
+//   require('../../assets/listAdv/adv02.png'),
+//   require('../../assets/listAdv/adv03.png'),
+//   require('../../assets/listAdv/adv04.png'),
+//   require('../../assets/listAdv/adv05.png'),
+// ];
 
-const StrainerImage = () => {
+const StrainerImage = ({ product }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const scrollViewRef = useRef(null);
-
+  const images = product.images;
+  // Khi người dùng nhấn vào thumbnail
   const handleThumbnailPress = (index) => {
     setActiveIndex(index);
-    scrollViewRef.current.scrollTo({ x: index * width, animated: true });
+    // Cuộn đến đúng vị trí của ảnh được chọn
+    if (scrollViewRef.current) {
+      scrollViewRef.current.scrollTo({ x: index * width, animated: true });
+    }
+  };
+
+  // Xử lý cuộn xong (sau khi người dùng thả tay ra)
+  const handleMomentumScrollEnd = (event) => {
+    const index = Math.floor(event.nativeEvent.contentOffset.x / width);
+    setActiveIndex(index);
   };
 
   return (
@@ -27,17 +36,14 @@ const StrainerImage = () => {
         horizontal
         pagingEnabled
         ref={scrollViewRef}
-        onScroll={(event) => {
-          const index = Math.floor(event.nativeEvent.contentOffset.x / width);
-          setActiveIndex(index);
-        }}
+        onMomentumScrollEnd={handleMomentumScrollEnd} // Chỉ cập nhật activeIndex khi cuộn dừng lại
         scrollEventThrottle={16}
         showsHorizontalScrollIndicator={false}
         style={styles.carousel}
       >
         {images.map((image, index) => (
           <View key={index} style={styles.slide}>
-            <Image source={image} style={styles.image} />
+            <Image source={{ uri: image }} style={styles.image} />
           </View>
         ))}
       </ScrollView>
@@ -45,7 +51,7 @@ const StrainerImage = () => {
         data={images}
         renderItem={({ item, index }) => (
           <TouchableOpacity onPress={() => handleThumbnailPress(index)} style={styles.thumbnailContainer}>
-            <Image source={item} style={[styles.thumbnail, activeIndex === index && styles.activeThumbnail]} />
+            <Image source={{ uri: item }} style={[styles.thumbnail, activeIndex === index && styles.activeThumbnail]} />
           </TouchableOpacity>
         )}
         horizontal
@@ -103,4 +109,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default StrainerImage;
+export default memo(StrainerImage);

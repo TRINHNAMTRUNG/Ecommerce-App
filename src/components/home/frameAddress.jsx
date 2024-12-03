@@ -15,7 +15,6 @@ const stylesFrameAddress = StyleSheet.create({
         width: "100%",
         alignItems: "center",
         flexDirection: "row",
-        marginTop: 10,
         paddingLeft: 16,
         paddingRight: 12,
         paddingTop: 8,
