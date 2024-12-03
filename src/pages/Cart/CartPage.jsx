@@ -7,16 +7,16 @@ import {
   TouchableOpacity,
   FlatList,
 } from "react-native";
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faXmark } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { getCartItems } from "../../services/cartService";
 import { useSelector } from "react-redux";
 import PromoComponentTotal from "../../components/Cart/promoTotal"; // Import your PromoComponentTotal
-import FrameAddress from "../../components/Home/frameAddress";
+import FrameAddress from "../../../src/components/home/frameAddress";
 import ShoppingCart from "../../components/Cart/shoppingCart";
 import PriceDisplay from "../../components/Cart/priceDisplay";
 import LoadingComponent from "../../components/loadComponent";
-import { useFocusEffect } from '@react-navigation/native';
+import { useFocusEffect } from "@react-navigation/native";
 
 const CartPage = ({ navigation, route }) => {
   const productSelect = {};
@@ -32,7 +32,7 @@ const CartPage = ({ navigation, route }) => {
     useCallback(() => {
       fetchCartItems();
     }, [])
-  )
+  );
 
   const fetchCartItems = async () => {
     try {
@@ -47,10 +47,17 @@ const CartPage = ({ navigation, route }) => {
                 sellerId: sellerId,
                 nameStore: item.product.seller.nameStore,
                 listProduct: [],
-                checked: false
+                checked: false,
               };
             }
-            acc[sellerId].listProduct.push({ ...item.product, itemsQty: item.itemsQty, checked: productSelect._id === item.product._id && productSelect ? true : false });
+            acc[sellerId].listProduct.push({
+              ...item.product,
+              itemsQty: item.itemsQty,
+              checked:
+                productSelect._id === item.product._id && productSelect
+                  ? true
+                  : false,
+            });
             return acc;
           }, {})
         );
@@ -68,7 +75,7 @@ const CartPage = ({ navigation, route }) => {
 
   if (isLoading) {
     return <LoadingComponent message="Đang tải giỏ hàng, vui lòng chờ..." />;
-  };
+  }
 
   return (
     <View style={styles.container}>
@@ -83,39 +90,41 @@ const CartPage = ({ navigation, route }) => {
       </View>
 
       <View style={styles.scrollContainer}>
-        {cartItems.length > 0 ?
+        {cartItems.length > 0 ? (
           <FlatList
             style={[{ flex: 1 }]}
             data={[1]}
             renderItem={() => (
               <View>
                 <FrameAddress />
-                <ShoppingCart cartItems={cartItems} setSubtotal={setSubtotal} setCartItems={setCartItems} />
+                <ShoppingCart
+                  cartItems={cartItems}
+                  setSubtotal={setSubtotal}
+                  setCartItems={setCartItems}
+                />
                 <PriceDisplay subtotal={subtotal} discount={0} />
               </View>
             )}
             keyExtractor={() => "cartGrid"}
             showsVerticalScrollIndicator={false}
           />
-          :
+        ) : (
           <View style={styles.emptyCartContainer}>
             <Image
               source={{
-                uri: 'https://storage.googleapis.com/a1aa/image/wvPYdsPQzmZ6CZGywZUZCHej0meQ7nJsuFpseEt9iKie4JJPB.jpg',
+                uri: "https://storage.googleapis.com/a1aa/image/wvPYdsPQzmZ6CZGywZUZCHej0meQ7nJsuFpseEt9iKie4JJPB.jpg",
               }}
               style={styles.image}
             />
             <View>
               <Text style={styles.title}>Giỏ hàng trống</Text>
-              <Text style={styles.subtitle}>
-                Vui lòng thêm sản phẩm!
-              </Text>
+              <Text style={styles.subtitle}>Vui lòng thêm sản phẩm!</Text>
             </View>
           </View>
-        }
+        )}
       </View>
 
-      {cartItems.length > 0 &&
+      {cartItems.length > 0 && (
         <View style={styles.fixedPromoContainer}>
           <PromoComponentTotal
             subtotal={subtotal}
@@ -124,7 +133,7 @@ const CartPage = ({ navigation, route }) => {
             cartItems={cartItems}
           />
         </View>
-      }
+      )}
     </View>
   );
 };
@@ -136,19 +145,19 @@ const styles = StyleSheet.create({
   },
   headerContainer: {
     paddingTop: 40,
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
   },
   header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
     padding: 16,
     borderBottomWidth: 1,
-    borderBottomColor: '#ddd',
+    borderBottomColor: "#ddd",
   },
   headerTitle: {
     fontSize: 18,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
   scrollContainer: {
     flex: 1,
@@ -161,17 +170,16 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 20,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
   subtitle: {
-    color: '#4A4A4A',
+    color: "#4A4A4A",
   },
   emptyCartContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
   },
-
 });
 
 export default memo(CartPage);

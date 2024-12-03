@@ -1,14 +1,24 @@
-import React, { memo, useEffect, useRef, useState } from 'react';
-import { View, FlatList, Image, ActivityIndicator, StyleSheet } from 'react-native';
+import React, { memo, useEffect, useRef, useState } from "react";
+import {
+  View,
+  FlatList,
+  Image,
+  ActivityIndicator,
+  StyleSheet,
+} from "react-native";
 
-import SlideAvertisement from '../../components/Home/slideAvertisement.jsx';
-import ListCategory from '../../components/Home/listCategory.jsx';
-import FrameAddress from '../../components/Home/frameAddress.jsx';
-import BarSearch from '../../components/Home/barSearch.jsx';
-import { dataAdvertisement } from '../../data/dataObject.js';
-import { getListTopDeal, getListTopDealBook, getListTopDealNew } from "../../services/productService.js";
-import SuggestedProducts from '../../components/Home/suggestedProduct.jsx';
-import ListProduct from "../../components/Home/listProduct.jsx";
+import SlideAvertisement from "../../../src/components/home/slideAvertisement.jsx";
+import ListCategory from "../../../src/components/home/listCategory.jsx";
+import FrameAddress from "../../../src/components/home/frameAddress.jsx";
+import BarSearch from "../../../src/components/home/barSearch.jsx";
+import { dataAdvertisement } from "../../data/dataObject.js";
+import {
+  getListTopDeal,
+  getListTopDealBook,
+  getListTopDealNew,
+} from "../../services/productService.js";
+import SuggestedProducts from "../../../src/components/home/suggestedProduct.jsx";
+import ListProduct from "../../../src/components/home/listProduct.jsx";
 
 const HomePage = ({ navigation }) => {
   const [isFixed, setIsFixed] = useState(false);
@@ -31,14 +41,14 @@ const HomePage = ({ navigation }) => {
         data: res.data.listProduct,
         namePipeline: "Top Deal - Siêu Rẻ",
         maxPage: res.data.totalPages,
-        passedfetch: getListTopDeal
+        passedfetch: getListTopDeal,
       };
       setListPipeline((prev) => [...prev, dataPipeline]);
     } catch (error) {
       const dataPipeline = {
         data: [],
         namePipeline: "Top Deal - Siêu Rẻ",
-        maxPage: 0
+        maxPage: 0,
       };
       setListPipeline((prev) => [...prev, dataPipeline]);
     }
@@ -51,14 +61,14 @@ const HomePage = ({ navigation }) => {
         data: res.data.listProduct,
         namePipeline: "Top Deal - Xả Kho Sách",
         maxPage: res.data.totalPages,
-        passedfetch: getListTopDealBook
+        passedfetch: getListTopDealBook,
       };
       setListPipeline((prev) => [...prev, dataPipeline]);
     } catch (error) {
       const dataPipeline = {
         data: [],
         namePipeline: "Top Deal - Xả Kho Sách",
-        maxPage: 0
+        maxPage: 0,
       };
       setListPipeline((prev) => [...prev, dataPipeline]);
     }
@@ -83,7 +93,6 @@ const HomePage = ({ navigation }) => {
     }
   };
 
-
   const handleScroll = (e) => {
     const { contentOffset } = e.nativeEvent;
     const y = contentOffset.y;
@@ -99,10 +108,10 @@ const HomePage = ({ navigation }) => {
   const renderLoader = () => {
     return (
       <View style={{ marginVertical: 16, alignItems: "center" }}>
-        <ActivityIndicator size={"large"} color='#1670FF' />
+        <ActivityIndicator size={"large"} color="#1670FF" />
       </View>
-    )
-  }
+    );
+  };
 
   return (
     <>
@@ -118,23 +127,35 @@ const HomePage = ({ navigation }) => {
         ListHeaderComponent={
           <View>
             <View style={stylesHomePage.frameHeader}>
-              <Image source={require("../../assets/thumb/backgr_image.png")} style={stylesHomePage.imageHeader} />
-              {isFixed === false && <BarSearch isFixed={isFixed} navigation={navigation} />}
-              <SlideAvertisement dataAdvertisement={dataAdvertisement} isFixed={isFixed} />
+              <Image
+                source={require("../../assets/thumb/backgr_image.png")}
+                style={stylesHomePage.imageHeader}
+              />
+              {isFixed === false && (
+                <BarSearch isFixed={isFixed} navigation={navigation} />
+              )}
+              <SlideAvertisement
+                dataAdvertisement={dataAdvertisement}
+                isFixed={isFixed}
+              />
             </View>
             <ListCategory navigation={navigation} />
             <FrameAddress />
           </View>
-
         }
-        ListFooterComponent={listPipelineSec.length > 0 &&
-          <View>
-            <SuggestedProducts listPipelineSec={listPipelineSec} isLoading={isLoading} namePipeline={"Gợi ý cho bạn"} />
-          </View>
+        ListFooterComponent={
+          listPipelineSec.length > 0 && (
+            <View>
+              <SuggestedProducts
+                listPipelineSec={listPipelineSec}
+                isLoading={isLoading}
+                namePipeline={"Gợi ý cho bạn"}
+              />
+            </View>
+          )
         }
         showsVerticalScrollIndicator={false}
       />
-
     </>
   );
 };
@@ -150,7 +171,7 @@ const stylesHomePage = StyleSheet.create({
     position: "relative",
     alignItems: "center",
     backgroundColor: "white",
-    paddingBottom: 5
+    paddingBottom: 5,
   },
   imageHeader: {
     position: "absolute",
