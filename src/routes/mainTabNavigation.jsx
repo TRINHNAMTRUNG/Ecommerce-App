@@ -11,7 +11,7 @@ import { StyleSheet, Text, TouchableNativeFeedback, TouchableOpacity, View } fro
 
 import HomeStackScreen from "./homeStackScreen";
 import UserStackScreen from "./userStackScreen";
-// import CategoryStackScreen from "./categoryStackScreen";
+import CategoryStackScreen from "./categoryStackScreen";
 import CartStackScreen from "./cartStackScreen";
 
 const MainTabNavigator = () => {
@@ -64,7 +64,7 @@ const MainTabNavigator = () => {
             />
             <Tab.Screen
                 name="ActivityStack"
-                component={UserStackScreen}
+                component={CategoryStackScreen}
                 options={{
                     tabBarLabel: ({ focused }) => (
                         <Text style={focused ? styleTab.labelFocus : styleTab.labelUnFocus}>

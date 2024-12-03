@@ -2,6 +2,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import HomePage from "../pages/Home/homePage.jsx";
 import DetailProductPage from "../pages/DetailProduct/DetailProductPage.jsx";
+import CartPage from "../pages/Cart/CartPage.jsx";
 import PromoPage from "../pages/Promo/promoPage.jsx";
 import SearchPage from "../pages/Home/searchPage.jsx";
 
@@ -21,6 +22,7 @@ const HomeStackScreen = () => {
 
             <HomeStack.Screen name="home" component={HomePage} />
             <HomeStack.Screen name="productDetail" component={DetailProductPage} />
+            <HomeStack.Screen name="cartPage" component={CartPage} />
             <HomeStack.Screen name="promoPage" component={PromoPage} />
             <HomeStack.Screen name="searchPage" component={SearchPage} />
         </HomeStack.Navigator>
