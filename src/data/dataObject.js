@@ -7,6 +7,20 @@ import adv04 from "../assets/listAdv/adv04.png";
 import adv05 from "../assets/listAdv/adv05.png";
 import adv06 from "../assets/listAdv/adv06.png";
 
+import thumn01 from "../assets/listAdv/thumn01.png";
+import thumn02 from "../assets/listAdv/thumn02.png";
+import thumn03 from "../assets/listAdv/thumn03.png";
+import thumn04 from "../assets/listAdv/thumn04.png";
+import thumn05 from "../assets/listAdv/thumn05.png";
+import thumn06 from "../assets/listAdv/thumn06.png";
+
+import thumb01 from "../assets/listAdv/thumb01.png";
+import thumb02 from "../assets/listAdv/thumb02.png";
+import thumb03 from "../assets/listAdv/thumb03.png";
+import thumb04 from "../assets/listAdv/thumb04.png";
+import thumb05 from "../assets/listAdv/thumb05.png";
+import thumb06 from "../assets/listAdv/thumb06.png";
+
 import catg1 from "../assets/listCatg/catg1.png";
 import catg2 from "../assets/listCatg/catg2.png";
 import catg3 from "../assets/listCatg/catg3.png";
@@ -92,6 +106,70 @@ export const dataAdvertisement = [
         id: 6,
         title: "adv06",
         src: adv06
+    }
+];
+export const dataAdvertisement1 = [
+    {
+        id: 1,
+        title: "thumn01",
+        src: thumn01
+    },
+    {
+        id: 2,
+        title: "thumn02",
+        src: thumn02
+    },
+    {
+        id: 3,
+        title: "thumn03",
+        src: thumn03
+    },
+    {
+        id: 4,
+        title: "thumn04",
+        src: thumn04
+    },
+    {
+        id: 5,
+        title: "thumn05",
+        src: thumn05
+    },
+    {
+        id: 6,
+        title: "thumn06",
+        src: thumn06
+    }
+];
+export const dataAdvertisement2 = [
+    {
+        id: 1,
+        title: "thumb01",
+        src: thumb01
+    },
+    {
+        id: 2,
+        title: "thumb02",
+        src: thumb02
+    },
+    {
+        id: 3,
+        title: "thumb03",
+        src: thumb03
+    },
+    {
+        id: 4,
+        title: "thumb04",
+        src: thumb04
+    },
+    {
+        id: 5,
+        title: "thumb05",
+        src: thumb05
+    },
+    {
+        id: 6,
+        title: "thumb06",
+        src: thumb06
     }
 ];
 
