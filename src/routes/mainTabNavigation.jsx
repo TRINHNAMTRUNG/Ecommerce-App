@@ -8,7 +8,6 @@ import { faHouseCrack, faHouse, faList, faListCheck, faEnvelope, faEnvelopeOpenT
 import { StyleSheet, Text, TouchableNativeFeedback, TouchableOpacity, View } from "react-native";
 
 import HomeStackScreen from "./homeStackScreen";
-import HomeDetail from "../pages/Home/homeDetail";
 import UserStackScreen from "./userStackScreen";
 
 const MainTabNavigator = () => {
