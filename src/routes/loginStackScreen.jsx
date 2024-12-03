@@ -10,7 +10,6 @@ import ChooseRoleScreen from "../pages/RoleSelection/roleSelection.jsx";
 const Stack = createNativeStackNavigator();
 
 const LoginStackScreen = () => {
-
     return (
         <Stack.Navigator initialRouteName="ChooseRoleScreen" screenOptions={{ headerShown: false }} >
             <Stack.Screen name="Login" component={Login} />
